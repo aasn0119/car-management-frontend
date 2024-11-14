@@ -12,7 +12,7 @@ const CarDetailPage = () => {
 
   let url = import.meta.env.VITE_API_URL;
   let parts = url.split(".com/");
-  let result = parts[0] + ".com/";
+  let result = parts[0] + ".com";
 
   useEffect(() => {
     const fetchCar = async () => {

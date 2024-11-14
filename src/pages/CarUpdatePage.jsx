@@ -9,7 +9,7 @@ const CarUpdatePage = () => {
 
   let url = import.meta.env.VITE_API_URL;
   let parts = url.split(".com/");
-  let result = parts[0] + ".com/";
+  let result = parts[0] + ".com";
 
   // All state variables for the form fields
   const [title, setTitle] = useState("");
