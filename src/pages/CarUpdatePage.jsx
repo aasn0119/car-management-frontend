@@ -124,9 +124,6 @@ const CarUpdatePage = () => {
 
   const handleRemoveExistingImage = async (imageUrl) => {
     try {
-      await axiosInstance.delete(`/cars/${id}/images`, {
-        data: { imageUrl },
-      });
       setExistingImages(existingImages.filter((img) => img !== imageUrl));
     } catch (error) {
       console.error("Failed to remove image", error);
@@ -182,7 +179,7 @@ const CarUpdatePage = () => {
     images.forEach((image) => formData.append("images", image));
 
     try {
-      await axiosInstance.put(`/cars/${id}`, formData, {
+      await axiosInstance.put(`/cars/updateCarDetails/${id}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       navigate(`/cars/${id}`);
