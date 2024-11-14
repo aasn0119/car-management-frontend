@@ -21,6 +21,10 @@ const CarListPage = () => {
   const [filteredCars, setFilteredCars] = useState([]);
   const navigate = useNavigate();
 
+  let url = import.meta.env.VITE_API_URL;
+  let parts = url.split(".com/");
+  let result = parts[0] + ".com/";
+
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -104,7 +108,7 @@ const CarListPage = () => {
               <p className="text-gray-600 mb-4">{car.description}</p>
               {car.images.length > 0 && (
                 <img
-                  src={`http://localhost:3005${car.images[0]}`}
+                  src={`${result}${car.images[0]}`}
                   alt="Car"
                   className="w-full h-48 object-cover rounded mb-4"
                 />

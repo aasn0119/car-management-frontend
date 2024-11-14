@@ -10,6 +10,10 @@ const CarDetailPage = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
 
+  let url = import.meta.env.VITE_API_URL;
+  let parts = url.split(".com/");
+  let result = parts[0] + ".com/";
+
   useEffect(() => {
     const fetchCar = async () => {
       try {
@@ -50,7 +54,7 @@ const CarDetailPage = () => {
               className="relative overflow-hidden rounded-lg shadow-lg"
             >
               <img
-                src={`http://localhost:3005${img}`}
+                src={`${result}${img}`}
                 alt={`Car ${index + 1}`}
                 className="w-full h-72 object-cover transition-transform duration-300 transform hover:scale-105"
               />
